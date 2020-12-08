@@ -48,7 +48,7 @@ On the first run through the combinations are stored in a list called comb_list.
     comb_nparr = np.array([i for i in comb])
 This ultimately sped the script up slightly by around 4 minutes giving a 30 minute run time. Still very very very long.
 ### Next steps
-I noticed that starting at the beginning of the ETF's list each new starting asset would decrease in time. For example, from the list above "XLE" is the first one, so the script runs thorugh all combinations starting with "XLE". This takes the longest, and then next is "XLF" which takes a shorter amount time of because the totalnumber objects in the etfs list is minus 1 every new iteration. 
+I noticed that starting at the beginning of the ETF's list each new starting asset would decrease in time. For example, from the list above "XLE" is the first one, so the script runs thorugh all combinations starting with "XLE". This takes the longest, and then next is "XLF" which takes a shorter amount time of because the total number objects in the etfs list is minus 1 every new iteration. 
 
 I stored the times it took to start a new iteration and graphed it. 
 See below:
@@ -83,7 +83,7 @@ See below:
 
 ![](iteration-times.png)
 
-I found taht I should split my process at the start of "XLI" because that was roughly half the total script time.
+I found that I should split my process at the start of "XLI" because that was roughly half the total script time.
 
     def  two_processes(etfs, n):
 	    comb = itertools.combinations(etfs,r=n) 
