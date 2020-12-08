@@ -1,11 +1,11 @@
 # Portfolio Optimization
 ## Description
-This project is a program that will take a length of assets, and find the the best portfolio optimization for a certain number of assests in the portfolio. The portfolio optimization is from the tutorial in this article https://randerson112358.medium.com/python-for-finance-portfolio-optimization-66882498847 .  
+This project is a program that will take a length of assets, and find the best portfolio allocation for a certain number of assests in the portfolio. The portfolio optimization is from the tutorial in this article https://randerson112358.medium.com/python-for-finance-portfolio-optimization-66882498847.  
 
-I'm also a complete beginner when it comes to finance and pyhton, but I find it very interesting! 
+I'm also a complete beginner when it comes to finance and python, but I find it very interesting so all feedback is great! 
 
 ### Goals
-The goal of this project was to build off the tutorial above by making the code run through numerous variations and speed it up. I timed the script for the first run through and it took around 34 minutes to complete. Now, I wanted to learn how to speed code up, which will be explained below. The full code source will show each step and explain the lines of code. 
+The goal of this project was to build off the tutorial above by making the code run through numerous variations and speed it up. I timed the script for the first run through and it took around 34 minutes to complete. Now, I wanted to learn how to speed code up, which I will explain below. The full code source will show each step and explain the lines of code. 
  
 ### Setup
 
@@ -16,7 +16,7 @@ The goal of this project was to build off the tutorial above by making the code 
     etfs = ['XLE', 'XLF', 'XLU', 'XLI', 'GDX', 'XLK', 'XLV', 'XLP', 'XLB', 'XOP', 'IYR', 'XHB', 'ITB','VNQ','GDXJ','IYE','OIH', 'XME','XRT', 'SMH', 'IBB' , 'KBE', 'KRE', 'XTL']
 
 #### Let's see how many combinations
-To get an idea of how many portfolios/items our script needs to go through, I will look at Combinations and Permutations. Combinations and Permutations are ways we can count how many different subsets of a particular number of objects there are. In this case we with choose Combinations because order doesn't matter for us. A cobination of [1,2,3] is the same as [2,1,3] or [3,2,1].
+To get an idea of how many portfolios/items our script needs to go through, I will look at Combinations and Permutations. Combinations and Permutations are ways we can count how many different subsets of a particular number of objects there are. In this case we with choose Combinations because order doesn't matter for us. A combination of [1,2,3] is the same as [2,1,3] or [3,2,1].
 
     def  get_combinations(n):
 	    comb = itertools.combinations(etfs,r=n)
@@ -27,7 +27,7 @@ To get an idea of how many portfolios/items our script needs to go through, I wi
     
     Output:
     42504
-This means there are 42,504 possible portfolios for portfolios consisting of 5 assests.
+This means there are 42,504 possible portfolios consisting of 5 assests. n is how many assests will be in the portfolio.
 
 ### First run through
 
@@ -50,7 +50,7 @@ This ultimately sped the script up slightly by around 4 minutes giving a 30 minu
 ### Next steps
 I noticed that starting at the beginning of the ETF's list each new starting asset would decrease in time. For example, from the list above "XLE" is the first one, so the script runs thorugh all combinations starting with "XLE". This takes the longest, and then next is "XLF" which takes a shorter amount time of because the totalnumber objects in the etfs list is minus 1 every new iteration. 
 
-I stored the times is took to start a new iteration and graphed it. 
+I stored the times it took to start a new iteration and graphed it. 
 See below:
 
     run_times = ['XLE took 0.13492369651794434 ',
@@ -83,7 +83,7 @@ See below:
 
 ![](iteration-times.png)
 
-I found I should split my process at the start of "XLI" because that was roughly half the total script time.
+I found taht I should split my process at the start of "XLI" because that was roughly half the total script time.
 
     def  two_processes(etfs, n):
 	    comb = itertools.combinations(etfs,r=n) 
@@ -135,3 +135,5 @@ The purpose was to establish a way of thinking to improve the speed of my script
 
 ### Other Steps to take
 Another step would be the shrink the number of assets to loop through, which would decrease the time as well. To do that, I could only run the operation on assets with a positive return to eliminate assets that didn't perform well. 
+
+Again, feedback is great!
